@@ -6,14 +6,13 @@ import lombok.Setter;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 
 public class ApplicationContext {
     @Setter
     private ObjectFactory factory;
-    private Map<Class, Object> cache = new ConcurrentHashMap<>();
+    private final Map<Class, Object> cache = new ConcurrentHashMap<>();
     @Getter
-    private Config config;
+    private final Config config;
 
     public ApplicationContext(Config config) {
         this.config = config;

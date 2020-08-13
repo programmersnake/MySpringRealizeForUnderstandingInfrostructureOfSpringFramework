@@ -1,7 +1,5 @@
 package com.kostinSpring;
 
-import com.kostinSpring.Configs.ObjectFactory;
-
 @Singleton
 public class ConsoleAnnouncer implements Announcer {
 

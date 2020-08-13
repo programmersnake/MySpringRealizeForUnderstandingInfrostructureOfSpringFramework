@@ -1,23 +1,21 @@
 package com.kostinSpring.Configs;
 
-import com.kostinSpring.*;
-import lombok.Setter;
 import lombok.SneakyThrows;
 
 import javax.annotation.PostConstruct;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ObjectFactory {
 
-    private static ObjectFactory ourInstance;
-    private ApplicationContext context;
-    private List<ObjectConfigurator> configurators = new ArrayList<>();
+    private final ApplicationContext context;
+    private final List<ObjectConfigurator> configurators = new ArrayList<>();
 
     @SneakyThrows
     public ObjectFactory(ApplicationContext context) {
-        this.context=context;
+        this.context = context;
         for (Class<? extends ObjectConfigurator> aClass : context.getConfig().getScanner().getSubTypesOf(ObjectConfigurator.class)) {
             configurators.add(aClass.getDeclaredConstructor().newInstance());
         }

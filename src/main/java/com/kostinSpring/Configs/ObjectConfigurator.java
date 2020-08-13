@@ -1,9 +1,8 @@
 package com.kostinSpring.Configs;
 
 /**
- * In Spring is BeanPostProsessor
+ * In Spring is BeanPostProcessor
  */
-
 public interface ObjectConfigurator {
-    public void configure(Object object, ApplicationContext context);
+    void configure(Object object, ApplicationContext context);
 }
